@@ -1,24 +1,10 @@
-// document.getElementById("text").innerHTML = "property & method Elemnet  : DOM ?"
+// document.getElementById("text").innerHTML = "property accessKey : DOM ?"
 
 
-// property : tagName
-document.getElementById("ref-link")
+document.querySelector('#myform input').accessKey = "i"
 
-document.getElementById("ref-link").tagName
-
-document.querySelector("li")
-
-document.querySelector("li").tagName
+document.querySelector("#ref-link").accessKey = "n"
 
 
-// metod matches 
-
-document.querySelector('ul').matches('#to-do-list')  // => true
-
-document.querySelector('ul').matches('.title')  // => false
-
-document.querySelector('ul').matches('a')  // => false
-
-
-//با استفاده از این متد میتوان یک المنت تمام صفحه کنیم
-// document.querySelector("img").requestFullscreen()
+/// focus : input  => alt + i 
+/// focus : link  => alt + n
