@@ -1,45 +1,40 @@
-// document.getElementById("text").innerHTML = "Nodes are objects : DOM ?"
+// document.getElementById("text").innerHTML = "property documents  : DOM ?"
 
 
-// Nodes are objects
+// property documents 
+/* 
+این پراپرتی ها فقط مخصوص نود داکیومنت  هستند
+*/ 
 
-let link = document.getElementById("ref-link")
+document.cookie
 
-let headTitle = document.querySelector('#header-title')
+document.URL
 
-/* هر دو یک نود از نوع المنت است
-ما در جاوا اسکریپت چیزی جز آبجکت نداریم
-*/
+document.baseURL
 
-typeof(link)   /// return => object
+document.domain
 
-typeof(headTitle)
+document.title
 
-/*
-نود ها هم به نوعی آبجکت هستند
-در جاوا اسکریپت هر آبجکتی یک سازنده دارد
-برای همه المنت ها یک  سازنده ها وجود دارد
-*/
+document.scripts    //<script>
 
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+document.documentElement
 
-link.constructor  // => return : HTMLAnchorElement()
+document.head
 
-headTitle.constructor  // => return HTMLHeadingElement()
+document.body
 
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+document.forms          // => <form>
 
-/*
- بنابراین هر نود یک آبجکت است و هر آبجکت یک سری پروپرتی و متد دارد که میتوان به کمک آن عملی انجام داد
-*/
+document.images
 
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+document.lastModified   //  date آخرین تاریخی که سند ما تغییر داشته بر میگرداند
 
-/* همه متد های که برای نود داکیومنت استفاده میکردیم میتوان برای بقیه نودهای المنت استفاده کرد
-*/
-document.getElementById("to-do-list").getElementsByTagName("li")
+document.activeElement   // اون المنتی که روس فوکوس کردیم بر میگرداند
 
+document.links
 
-headTitle.innerHTML   // => return : dummy project
+document.characterSet  // => utf-8
 
-headTitle.innerHTML = "my project"
+document.readyState         // آیا لود داکیومنت ما تمام شده یا نه
+
