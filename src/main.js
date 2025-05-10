@@ -1,43 +1,45 @@
-// document.getElementById("text").innerHTML = "iteration node : DOM ?"
+// document.getElementById("text").innerHTML = "Nodes are objects : DOM ?"
 
 
-// itreation node
-/* چگونه پدران یا برادران یک نود به دست اوریم*/
+// Nodes are objects
 
-window.document.getElementById("to-do-list")
+let link = document.getElementById("ref-link")
 
-//1- parent node : پدری به دست می آورد که نوع آن نود باشند
-window.document.getElementById("to-do-list").parentNode
+let headTitle = document.querySelector('#header-title')
 
-//2-  parent element : پدری به دست می‌آورد که نوع آن المنت باشد
-window.document.getElementById("to-do-list").parentElement
+/* هر دو یک نود از نوع المنت است
+ما در جاوا اسکریپت چیزی جز آبجکت نداریم
+*/
 
-/*  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+typeof(link)   /// return => object
 
-/* در چه صورتی میتواند متفاوت باشد */
+typeof(headTitle)
 
-/*روش های به دست آوردن تگ اچ تی ام ال */
-// document.childNodes[1]  OR document.querySelector("html") OR document.documentElement
+/*
+نود ها هم به نوعی آبجکت هستند
+در جاوا اسکریپت هر آبجکتی یک سازنده دارد
+برای همه المنت ها یک  سازنده ها وجود دارد
+*/
 
-document.documentElement.parentElement     // => return null : چون پدر اچ تی ام ال از نوع نود نیست
-document.documentElement.parentNode         // => return #document:html <html>... </html> 
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-/*  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+link.constructor  // => return : HTMLAnchorElement()
 
-/* به دست آوردن نود های هم سطح (برادر) */
-document.getElementById("to-do-list").parentNode.childNodes
+headTitle.constructor  // => return HTMLHeadingElement()
 
-document.getElementById("to-do-list").parentNode.children
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-/*  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+ بنابراین هر نود یک آبجکت است و هر آبجکت یک سری پروپرتی و متد دارد که میتوان به کمک آن عملی انجام داد
+*/
 
-/* چگونگی رفتن از یک نود به نود هم سطح  */
-// next
-document.querySelector('#to-do-list').nextSibling  // => return : text
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-document.querySelector('#to-do-list').nextElementSibling // => null
+/* همه متد های که برای نود داکیومنت استفاده میکردیم میتوان برای بقیه نودهای المنت استفاده کرد
+*/
+document.getElementById("to-do-list").getElementsByTagName("li")
 
-// previous
-document.querySelector("#to-do-list").previousSibling  // => return : text
 
-document.querySelector('#to-do-list').previousElementSibling // => return : h2
+headTitle.innerHTML   // => return : dummy project
+
+headTitle.innerHTML = "my project"
