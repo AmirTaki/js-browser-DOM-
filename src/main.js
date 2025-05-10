@@ -1,38 +1,56 @@
-// document.getElementById("text").innerHTML = "Query Selector : DOM ?"
-
-// Query Selector & Query Selector All
-//Query Selector
-window.document.querySelector("#to-do-list")  // id 
-
-window.document.querySelector('.title')  // class => return one element =>
-
-window.document.querySelector('li')     // tag => return one elemtnt
-
-// Query Selector All  => خروجی از نوع نود لیست است
-window.document.querySelectorAll(".title") // class => return all element  خروجی مجموعه ای از عناصر
-
-window.document.querySelectorAll('li')   // tag => return all element
+// document.getElementById("text").innerHTML = "node : DOM ?"
 
 
-let nodeList = document.querySelectorAll(".title");
+// node
+/*
+در درخت دام یعنی آبخکت داکیومنت هر چیزی یک نود است
+یعنی آبحکت داکیومنت خودش یک نود است و تمام فرزندان و ... آن نیز نود می باشند
+ولی نوغ نود ها یکسان نیست و دوازده نوع مختلف وجود دارد  
+برای شناسایی از پراپرتی نود تایپ و نود نام استفاده میکنیم
 
-nodeList[2]
+*/
+window.document.nodeName  // => #document
 
-document.querySelectorAll("#myform input")
+window.document.nodeType  // => 9
 
-document.querySelectorAll("#myform input[type=text]")
+/* - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - --  - */
+// childNode
 
-document.querySelectorAll("*")  // برگرداندن تمام المنت های درون سند
+window.document.childNodes  // => return childs Node
 
-document.querySelectorAll("main *") //  برگرداندن تمام المنت های   (مین) درون سند
+window.document.childNodes[0].nodeType // => return 10  : <!documetn html>
+
+window.document.childNodes[1].nodeType // => return 1   : <html> .. </html>
+
+// ما به نود هایی که از نوع المنت باشد تگ می گوییم
+
+/* - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - --  - */
+
+let myHtmlElement = document.childNodes[1]
+
+myHtmlElement.childNodes  // => return : NodeList(3) [head, text, body]
+
+myHtmlElement.childNodes[0].nodeType  // return 1 : elemnet
+myHtmlElement.childNodes[2].nodeType   // return 1 : element
+
+/*
+همه تکست ها درون سند اچ تی ام ال در واقع نود هستند
+تکست معمولی تا تکست درون اتربیوت همگی نود هستند
+چرا تگ تکست در سند مشاهده نمی‌شود ؟ 
+راستی که بین تگ هد و بادی ما قرار دارد یک کارکتر نامرعی است که یک تکست نود حساب مبشود
+*/
+
+myHtmlElement.childNodes[1].nodeType  // return 3 : text
 
 
-for (let i = 0 ; i < nodeList.length; i++){
-    console.log(nodeList[i])
-}
+/* - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - --  - */
 
-console.log("------- for each --------------")
+// childs body
+let myBody = myHtmlElement.childNodes[2]
 
-nodeList.forEach(element => {
-    console.log(element)
-});
+myBody.childNodes
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - --  - */
+
+myBody.children    // فقط نود هایی برای ما برمیگرداند که از نوع المنت هستند
