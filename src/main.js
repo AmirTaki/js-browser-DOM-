@@ -1,20 +1,62 @@
-// document.getElementById("text").innerHTML = "Access to the element DOM ?"
-// - Access to the element : - دسترسی به المنت
+// document.getElementById("text").innerHTML = "HTML Collection  : DOM ?"
 
-// Get element by id  : دسترسی با آی دی
-window.document.getElementById('to-do-list')
+// html collection  
 
-// Get element by class name : دسترسی با نام کلاس
-window.document.getElementsByClassName("to-do-item")  // => HTMLCollection
+let titles = window.document.getElementsByClassName("title") // constractor ==> htmlcollection
 
-let toDoItmes = document.getElementsByClassName("to-do-item") 
+console.log(titles)
 
-for (let i in toDoItmes){console.log(toDoItmes[i])}
+let arr = [1, 2, 3, 4, 5] // constarctor ==> array()
+
+console.log(titles.constructor)  // html collection
+
+console.log(arr.constructor)   // Array()
+
+/* --------------------------------------------------------------------- */
+
+// method html collection & property html collection
+
+// property htmlCollection
+
+titles.length
+
+window.document.getElementsByTagName('h2').length
+
+/* --------------------------------------------------------------------- */
+
+// item(index)   OR   [index]  
+titles.item(2)
+titles[3]
+
+/* --------------------------------------------------------------------- */
+
+/* nemed(ID) OR .['id']
+  document.getElementByClassName('').namedItem("id")
+  document.getElementByClassName('')['id'] */
+
+titles.namedItem("main-title")  // برحسب ای دی بیرون میکشد
+titles['main-title']   // بین لیست فراخوانی شده میگردد و ای دی مد نظر برمگیرداند
+
+/* --------------------------------------------------------------------- */
+
+/* itrable htmlCollection */
+
+let list = document.getElementsByClassName("to-do-item")
+for (let i = 0 ; i < list.length; i++){
+    // console.log(`items ${i} : ${list[i]}`)
+    console.log(list[i])
+}
+
+console.log('--------foreach---------------')
+array = Array.from(list)  // convert htmlCollecto to Array
+array.forEach((element) => {
+    console.log(element)
+});
 
 
-window.document.getElementsByClassName("to-do-section") // -> HTMLCollection
+console.log("----------for in --------")
 
+for (let index in list){console.log(list[index])}
 
-// Get element by tag name : دسترسی با نام تگ
-window.document.getElementsByTagName('li')
-
+console.log("----------for of --------")
+for (let index of list){console.log(index)}
