@@ -24,3 +24,12 @@ header, main , footer {
 .to-do-section, #to-do-list, .to-do-item, .title, #header-title, .to-do-span, form {
     border: 1px solid #3498db;
 }
+
+
+.red-text {
+    color : red
+}
+
+.blue-text{
+    color:rgb(12, 211, 251)
+}

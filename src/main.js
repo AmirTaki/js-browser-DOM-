@@ -1,40 +1,93 @@
-// document.getElementById("text").innerHTML = "property documents  : DOM ?"
+// document.getElementById("text").innerHTML = "method documents  : DOM ?"
 
 
-// property documents 
+// method documents 
 /* 
-این پراپرتی ها فقط مخصوص نود داکیومنت  هستند
+این متد ها فقط مخصوص نود داکیومنت  هستند
+
+در درخت دام اتربیوت ها نیز خود یک نود هستند
+
+
 */ 
 
-document.cookie
+//document.createAttribute()  //class, target , link , ....
 
-document.URL
 
-document.baseURL
+// ساخت اتربیوت
 
-document.domain
+let att = window.document.createAttribute("target")
 
-document.title
+att.value = "_blank"
 
-document.scripts    //<script>
+att.nodeName  // => target
 
-document.documentElement
+att.nodeType  // => 2 : node attreibute
 
-document.head
+document.getElementById("ref-link")
 
-document.body
+document.getElementById("ref-link").setAttributeNode(att)
 
-document.forms          // => <form>
+/* -------------------------------------------------------------------- */
 
-document.images
+// ساخت اتربیوت
 
-document.lastModified   //  date آخرین تاریخی که سند ما تغییر داشته بر میگرداند
+let attClass = document.createAttribute("class")
 
-document.activeElement   // اون المنتی که روس فوکوس کردیم بر میگرداند
+// هر اتربیوت یک کلید و یک مقدار دارد
 
-document.links
+attClass.value = 'red-text'
 
-document.characterSet  // => utf-8
+attClass.value 
 
-document.readyState         // آیا لود داکیومنت ما تمام شده یا نه
+// اضافه کردن اتربیوت به المنت 
 
+document.getElementById('ref-link').setAttributeNode(attClass)
+
+/* -------------------------------------------------------------------- */
+
+//بدون ساختن نود اتربیوت هم میتوان این کار را کرد
+
+// setAttribute(key, value)
+
+document.getElementById('ref-link').setAttribute("target", "_blank")
+
+document.getElementById("ref-link").setAttribute("class", 'blue-text')
+
+/* -------------------------------------------------------------------- */
+
+/*ایجاد یک المنت جدید */
+let newLi = document.createElement("li")
+
+/* ایجاد نود تکست */
+let liText = document.createTextNode("dummy item five")
+
+/* ایجاد فرزند برای یک نود */
+newLi.appendChild(liText);  // add child for parent
+
+
+let ul = document.querySelector("ul")
+
+/* اضافه کردن به المنت مدنظر*/
+ul.appendChild(newLi)
+
+/* -------------------------------------------------------------------- */
+
+/* روش دیگر برای اضافه کردن یک المنت  */
+newLi = document.createElement("li")
+
+newLi.innerHTML  = "dummy item six"
+
+ul.appendChild(newLi)
+
+/* -------------------------------------------------------------------- */
+
+/* این متد داکیومنت فعلی ما را می‌بندد و داکیومنت جدید ایجاد میکند */
+document.open()
+
+/* هر چیزی که بنویسیم در داکیومنت جدید ایجاد میکند */
+document.write("<h1> new document </h1>")
+
+/* بستن داکیومنت */
+document.close() 
+
+/* -------------------------------------------------------------------- */
