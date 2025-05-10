@@ -1,62 +1,38 @@
-// document.getElementById("text").innerHTML = "HTML Collection  : DOM ?"
+// document.getElementById("text").innerHTML = "Query Selector : DOM ?"
 
-// html collection  
+// Query Selector & Query Selector All
+//Query Selector
+window.document.querySelector("#to-do-list")  // id 
 
-let titles = window.document.getElementsByClassName("title") // constractor ==> htmlcollection
+window.document.querySelector('.title')  // class => return one element =>
 
-console.log(titles)
+window.document.querySelector('li')     // tag => return one elemtnt
 
-let arr = [1, 2, 3, 4, 5] // constarctor ==> array()
+// Query Selector All  => خروجی از نوع نود لیست است
+window.document.querySelectorAll(".title") // class => return all element  خروجی مجموعه ای از عناصر
 
-console.log(titles.constructor)  // html collection
+window.document.querySelectorAll('li')   // tag => return all element
 
-console.log(arr.constructor)   // Array()
 
-/* --------------------------------------------------------------------- */
+let nodeList = document.querySelectorAll(".title");
 
-// method html collection & property html collection
+nodeList[2]
 
-// property htmlCollection
+document.querySelectorAll("#myform input")
 
-titles.length
+document.querySelectorAll("#myform input[type=text]")
 
-window.document.getElementsByTagName('h2').length
+document.querySelectorAll("*")  // برگرداندن تمام المنت های درون سند
 
-/* --------------------------------------------------------------------- */
+document.querySelectorAll("main *") //  برگرداندن تمام المنت های   (مین) درون سند
 
-// item(index)   OR   [index]  
-titles.item(2)
-titles[3]
 
-/* --------------------------------------------------------------------- */
-
-/* nemed(ID) OR .['id']
-  document.getElementByClassName('').namedItem("id")
-  document.getElementByClassName('')['id'] */
-
-titles.namedItem("main-title")  // برحسب ای دی بیرون میکشد
-titles['main-title']   // بین لیست فراخوانی شده میگردد و ای دی مد نظر برمگیرداند
-
-/* --------------------------------------------------------------------- */
-
-/* itrable htmlCollection */
-
-let list = document.getElementsByClassName("to-do-item")
-for (let i = 0 ; i < list.length; i++){
-    // console.log(`items ${i} : ${list[i]}`)
-    console.log(list[i])
+for (let i = 0 ; i < nodeList.length; i++){
+    console.log(nodeList[i])
 }
 
-console.log('--------foreach---------------')
-array = Array.from(list)  // convert htmlCollecto to Array
-array.forEach((element) => {
+console.log("------- for each --------------")
+
+nodeList.forEach(element => {
     console.log(element)
 });
-
-
-console.log("----------for in --------")
-
-for (let index in list){console.log(list[index])}
-
-console.log("----------for of --------")
-for (let index of list){console.log(index)}
