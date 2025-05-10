@@ -1,56 +1,43 @@
-// document.getElementById("text").innerHTML = "node : DOM ?"
+// document.getElementById("text").innerHTML = "iteration node : DOM ?"
 
 
-// node
-/*
-در درخت دام یعنی آبخکت داکیومنت هر چیزی یک نود است
-یعنی آبحکت داکیومنت خودش یک نود است و تمام فرزندان و ... آن نیز نود می باشند
-ولی نوغ نود ها یکسان نیست و دوازده نوع مختلف وجود دارد  
-برای شناسایی از پراپرتی نود تایپ و نود نام استفاده میکنیم
+// itreation node
+/* چگونه پدران یا برادران یک نود به دست اوریم*/
 
-*/
-window.document.nodeName  // => #document
+window.document.getElementById("to-do-list")
 
-window.document.nodeType  // => 9
+//1- parent node : پدری به دست می آورد که نوع آن نود باشند
+window.document.getElementById("to-do-list").parentNode
 
-/* - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - --  - */
-// childNode
+//2-  parent element : پدری به دست می‌آورد که نوع آن المنت باشد
+window.document.getElementById("to-do-list").parentElement
 
-window.document.childNodes  // => return childs Node
+/*  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-window.document.childNodes[0].nodeType // => return 10  : <!documetn html>
+/* در چه صورتی میتواند متفاوت باشد */
 
-window.document.childNodes[1].nodeType // => return 1   : <html> .. </html>
+/*روش های به دست آوردن تگ اچ تی ام ال */
+// document.childNodes[1]  OR document.querySelector("html") OR document.documentElement
 
-// ما به نود هایی که از نوع المنت باشد تگ می گوییم
+document.documentElement.parentElement     // => return null : چون پدر اچ تی ام ال از نوع نود نیست
+document.documentElement.parentNode         // => return #document:html <html>... </html> 
 
-/* - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - --  - */
+/*  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-let myHtmlElement = document.childNodes[1]
+/* به دست آوردن نود های هم سطح (برادر) */
+document.getElementById("to-do-list").parentNode.childNodes
 
-myHtmlElement.childNodes  // => return : NodeList(3) [head, text, body]
+document.getElementById("to-do-list").parentNode.children
 
-myHtmlElement.childNodes[0].nodeType  // return 1 : elemnet
-myHtmlElement.childNodes[2].nodeType   // return 1 : element
+/*  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-/*
-همه تکست ها درون سند اچ تی ام ال در واقع نود هستند
-تکست معمولی تا تکست درون اتربیوت همگی نود هستند
-چرا تگ تکست در سند مشاهده نمی‌شود ؟ 
-راستی که بین تگ هد و بادی ما قرار دارد یک کارکتر نامرعی است که یک تکست نود حساب مبشود
-*/
+/* چگونگی رفتن از یک نود به نود هم سطح  */
+// next
+document.querySelector('#to-do-list').nextSibling  // => return : text
 
-myHtmlElement.childNodes[1].nodeType  // return 3 : text
+document.querySelector('#to-do-list').nextElementSibling // => null
 
+// previous
+document.querySelector("#to-do-list").previousSibling  // => return : text
 
-/* - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - --  - */
-
-// childs body
-let myBody = myHtmlElement.childNodes[2]
-
-myBody.childNodes
-
-
-/* - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - --  - */
-
-myBody.children    // فقط نود هایی برای ما برمیگرداند که از نوع المنت هستند
+document.querySelector('#to-do-list').previousElementSibling // => return : h2
