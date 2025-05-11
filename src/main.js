@@ -1,42 +1,40 @@
-// document.getElementById("text").innerHTML = "Element dimensions and position: DOM ?"
+// document.getElementById("text").innerHTML = "itration of elements: DOM ?"
 
-// Element dimensions and position
+// itration of elements
 
-// clienWidth
-window.document.querySelector("section").clientWidth // width element
+document.querySelector("#to-do-list").childNodes // => return child node 
 
-// offsetWidth
-window.document.querySelector("section").offsetWidth // width element + border
+document.childNodes    // => return child node html
 
-// scrolWidth
-window.document.querySelector("section").scrollWidth  // Element   horizontal scroll 
+document.querySelector("#to-do-list").children // => return child type : element
 
-// clineHeight
-window.document.querySelector("section").clientHeight // height element
+document.querySelector("#to-do-list").children.length  // => return number Child : type : element
 
-// offsetHeight
-window.document.querySelector("section").offsetHeight // Height element + border
+document.querySelector("#to-do-list").childElementCount  // => return number chileElement 
 
-// scroolHeight
-window.document.querySelector("section").scrollHeight  // Element   vertical scroll 
+document.querySelector("#to-do-list").firstChild    // => return first Child 
 
-// clientLeft
-window.document.querySelector("section").clientLeft   // size border left element
+document.querySelector("#to-do-list").firstElementChild    // => return first Child : type Element 
 
-// clientTop
-window.document.querySelector("section").clientTop   // size border  top element
+document.querySelector("#to-do-list").lastChild             // => return last Child
 
-//scrollTop
-window.document.querySelector("section").scrollTop  //  move scroll vertical element
-document.documentElement.scrollTop
+document.querySelector("#to-do-list").lastElementChild     // => return last Child type : element
 
-// scrollLeft
-window.document.querySelector("section").scrollLeft  // move scroll horizontal element
-document.documentElement.scrollLeft
+document.querySelector("#to-do-list").parentNode     // => return parent node
 
+document.querySelector("#to-do-list").parentElement // => return parent element
 
-// offsetLeft
-window.document.querySelector("section").offsetLeft //Element distance from the left side of the window 
+document.querySelector("#to-do-list").parentElement.childNodes // => return node same-level Element 
 
-//offsetTop
-window.document.querySelector("section").offsetTop // Element distance from the top side of the window
+document.querySelector("#to-do-list").parentElement.children // => return node same-level Element  type : element
+
+document.querySelector("#main-title").nextSibling // => return node next
+
+document.querySelector("#main-title").nextElementSibling // => return node next type : element 
+
+document.querySelector("#main-title").previousSibling   // => return node back 
+
+document.querySelector("#main-title").previousElementSibling // => return node back type : element
+
+document.querySelector('.to-do-item').closest("ul")  // => return parent element specified
+document.querySelector('.to-do-item').closest(".to-do-section")
