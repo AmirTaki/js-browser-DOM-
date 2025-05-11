@@ -1,121 +1,42 @@
-// document.getElementById("text").innerHTML = "Operations with elements: DOM ?"
+// document.getElementById("text").innerHTML = "Element dimensions and position: DOM ?"
 
-// Operations with elements :
+// Element dimensions and position
 
-// اضافه کردن المنت جدید
+// clienWidth
+window.document.querySelector("section").clientWidth // width element
 
-//Create Element : ساخت المنت جدید
-let newSpan = document.createElement("span")
+// offsetWidth
+window.document.querySelector("section").offsetWidth // width element + border
 
+// scrolWidth
+window.document.querySelector("section").scrollWidth  // Element   horizontal scroll 
 
-newSpan.className = "to-do-span" //  اضافه کردن کلاس به المنت
+// clineHeight
+window.document.querySelector("section").clientHeight // height element
 
-/* روش اول ایجاد نود تکست و اضافه کردن به المنت و روش دوم از پراپرتی زیر استفاده‌ میکنیم  */
-newSpan.innerText = "dummy item five" // اضافه کردن تکست به درون المنت
+// offsetHeight
+window.document.querySelector("section").offsetHeight // Height element + border
 
-let newLi = document.createElement("li")
+// scroolHeight
+window.document.querySelector("section").scrollHeight  // Element   vertical scroll 
 
-newLi.appendChild(newSpan)  // اضافه کردن المنت به المنت دیگر
+// clientLeft
+window.document.querySelector("section").clientLeft   // size border left element
 
-newLi.className = "to-do-item"
+// clientTop
+window.document.querySelector("section").clientTop   // size border  top element
 
-document.getElementById("to-do-list").appendChild(newLi) 
+//scrollTop
+window.document.querySelector("section").scrollTop  //  move scroll vertical element
+document.documentElement.scrollTop
 
-/* -- - - - - - - - - -- - - - - - - - - - - -- - - - - -- - -- - - - -- - - - --  */
-
-/*  روش دیگر فرزند به المنت  */
-
-/* کپی کردن از یک المنت  : cloneNode()*/
-
-/* 
-اگر  ورودی متد کلون
-(false)
-قرار بدهیم فرزندان درونی المنت کپی نمیکند اما اگر 
-(true)
-قرار دهیم فرزندان درونی آن المنت مد نظر کپی میکند
-*/
-// .cloneNode(false) OR .cloneNode(true)
-
-let myLi = document.querySelector(".to-do-item").cloneNode(true)
-
-myLi.querySelector("span").innerText = "dummy item six"  // دسترسی پیدا کردن به المنت فرزند برای تغییر تکست
-
-document.querySelector('#to-do-list').appendChild(myLi)
+// scrollLeft
+window.document.querySelector("section").scrollLeft  // move scroll horizontal element
+document.documentElement.scrollLeft
 
 
-/* -- - - - - - - - - -- - - - - - - - - - - -- - - - - -- - -- - - - -- - - - --  */
-// اضافه کردن المنت جدید
+// offsetLeft
+window.document.querySelector("section").offsetLeft //Element distance from the left side of the window 
 
-let img = document.createElement("img")
-
-img.src = "https://picsum.photos/200"
-
-img.style.borderRadius = "50%";
-
-document.querySelector('section').appendChild(img)
-
-
-/* -- - - - - - - - - -- - - - - - - - - - - -- - - - - -- - -- - - - -- - - - --  */
-// remove پاک کردن المنت
-
-document.querySelector("img").remove()
-
-/* -- - - - - - - - - -- - - - - - - - - - - -- - - - - -- - -- - - - -- - - - --  */
-
-// remove Child :  این متد روی المنت پدر برای پاک کردن فرزندان استفاده میکنیم
-
-
-let firstLi = document.querySelector("li")
-
-firstLi.parentElement.removeChild(firstLi)
-
-/* -- - - - - - - - - -- - - - - - - - - - - -- - - - - -- - -- - - - -- - - - --  */
-
-// .replaceChild(newElement, oldElement) 
-/*
-جایگزین کردن فرزندان یک المنت با المنت دیگر
-برای این کار ابتدا به پدر المنت دسترسی پیدا میکنیم
-*/
-
-let newLink = document.createElement("A")
-
-newLink.href = "https://google.com"
-
-newLink.id = "ref-link"
-
-newLink.innerText = "google"
-
-let oldLink = document.getElementById("ref-link")
-
-document.querySelector("footer").replaceChild(newLink, oldLink)
-
-/* -- - - - - - - - - -- - - - - - - - - - - -- - - - - -- - -- - - - -- - - - --  */
-
-//  یک المنت قبل از یکی از فرزندان یک المنت اضافه کنیم
-// .insertBefor("element", "addElement")
-
-newLi = document.createElement("li")          // ساخت المنت جدید
-
-newLi.innerText = "new Li"                   // اضافه کردن متن
-
-let ul = document.querySelector("ul")       // دسترسی به المنت مد نظر 
-
-let thirdChild = ul.children[2]            // دسترسی به فرزند المنت 
-
-ul.insertBefore(newLi, thirdChild)    // اضافه کردن المنت به قبل از المنت مد نظر
-
-/* -- - - - - - - - - -- - - - - - - - - - - -- - - - - -- - -- - - - -- - - - --  */
-
-// element.insertAdjacentElement("string", elementChange) : جابه‌جایی دو المنت با همدیگر
-
-let link = document.querySelector('#ref-link')
-
-ul = document.querySelector("ul")
-
-ul.insertAdjacentElement("beforebegin", link) // المنت جابه جا شده به قبل از المنت مد نظر می‌آورد 
-
-ul.insertAdjacentElement("afterend", link)   // المنت جابه جا شده به بعد از المنت مد نظر می‌آورد 
-
-ul.insertAdjacentElement("afterbegin", link)  // first Child
-
-ul.insertAdjacentElement("beforeend", link)   // end Child
+//offsetTop
+window.document.querySelector("section").offsetTop // Element distance from the top side of the window
