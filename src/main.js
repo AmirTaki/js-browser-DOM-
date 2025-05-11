@@ -1,16 +1,46 @@
-// document.getElementById("text").innerHTML = "property  style : DOM ?"
+// document.getElementById("text").innerHTML = "Managing Element Classes: DOM ?"
 
-//  property style
+// Managing Element Classes
 
-document.querySelector("#main-title").style = "color : silver"
+let mainTitle = document.querySelector("#main-title")
 
-document.querySelector('#main-title').style = 'background-color : red'
+// mainTitle.className = 'new class' => کلاس ها قبلی حذف شدند
 
-document.querySelector('#main-title').style = "color : silver; background-color : red"
+/* -- - - - - - - - - -- - - - - - - - - - - -- - - - - -- - -- - - - -- - - - --  */
 
+/*   کلاس های قبلی باقی می مانند */
+mainTitle.className = mainTitle.className + ' new-class ' 
 
+/* -- - - - - - - - - -- - - - - - - - - - - -- - - - - -- - -- - - - -- - - - --  */
 
-document.querySelector('#header-title').style.color = "yellow"
-document.querySelector("#header-title").style.backgroundColor = "black"
+/* روش دیگر اضافه کردن کلاس */
+mainTitle.classList  // => return DOMTokenList
 
-document.querySelector("#header-title").style.padding = '50px'
+mainTitle.classList.add("main-new")
+
+mainTitle.classList.remove("main-new")
+
+mainTitle.classList.remove('new-class')
+
+mainTitle.classList
+
+/* -- - - - - - - - - -- - - - - - - - - - - -- - - - - -- - -- - - - -- - - - --  */
+
+/* جایگزین کردن یک کلاس با کلاس دیگر    */
+mainTitle.classList.replace("section-title", 'new-class')
+
+/* -- - - - - - - - - -- - - - - - - - - - - -- - - - - -- - -- - - - -- - - - --  */
+
+/* چک میکند که آیا کلاس مد نظر. در المنت وجود دارد  */
+/* اگر المنت ما کلاس داشته باشه پاک میکند اگر نداشته باشه. اضافه میکند*/
+
+mainTitle.classList.contains("title")  // => true
+
+mainTitle.classList.toggle("new-class") // => remove
+
+mainTitle.classList.toggle("main-new") // => add
+
+/* -- - - - - - - - - -- - - - - - - - - - - -- - - - - -- - -- - - - -- - - - --  */
+
+/* این یک لیست از کلاس هاست و با براکت نوتیشن میتوان به اعضای آن دسترسی پیدا کرد */
+mainTitle.classList[0]
